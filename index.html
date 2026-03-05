@@ -1,1 +1,72 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Stark Arc Reactor Energy Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Background Video -->
+<video autoplay muted loop id="bg-video">
+<source src="ironman-fly.mp4" type="video/mp4">
+</video>
+
+<div class="panel">
+
+<div class="reactor-section">
+
+<div class="reactor">
+
+<div class="ring ring1"></div>
+<div class="ring ring2"></div>
+
+<div class="core">
+<div class="triangle"></div>
+</div>
+
+</div>
+
+<h2>ARC REACTOR ENERGY</h2>
+
+<div class="energy">
+Remaining Energy: <span id="remaining">100</span> / 100
+</div>
+
+</div>
+
+<!-- Subsystems -->
+<div class="systems" id="systems"></div>
+
+<!-- Jarvis Console -->
+<div class="jarvis">
+
+<h3>JARVIS Command Console</h3>
+
+<input
+id="commandInput"
+placeholder="boost propulsion / balance power"
+/>
+
+<button onclick="runCommand()">Execute</button>
+
+<button onclick="startListening()">🎤 Speak</button>
+
+<div id="jarvisResponse"></div>
+
+</div>
+
+<div id="warning" class="warning"></div>
+
+</div>
+
+<!-- HUD scanning overlay -->
+<div class="hud-overlay"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
