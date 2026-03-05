@@ -1,1 +1,245 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
 
+/* Background video */
+
+#bg-video{
+position:fixed;
+right:0;
+bottom:0;
+min-width:100%;
+min-height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+/* dark overlay */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(2,6,23,0.85);
+z-index:-1;
+}
+
+body{
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+/* main panel */
+
+.panel{
+width:1000px;
+background:rgba(5,11,26,0.75);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+/* reactor */
+
+.reactor{
+position:relative;
+width:220px;
+height:220px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.core{
+width:140px;
+height:140px;
+background:radial-gradient(circle,#6df6ff,#0088ff,#001a3a);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:
+0 0 30px #00eaff,
+0 0 80px #00eaff;
+}
+
+.triangle{
+width:80px;
+height:80px;
+
+clip-path:polygon(
+50% 0%,
+100% 100%,
+0% 100%
+);
+
+background:#c7ffff;
+
+box-shadow:
+0 0 20px #00eaff,
+0 0 40px #00eaff;
+}
+
+.ring{
+position:absolute;
+border-radius:50%;
+border:2px solid rgba(0,255,255,0.3);
+}
+
+.ring1{
+width:200px;
+height:200px;
+animation:spin 10s linear infinite;
+}
+
+.ring2{
+width:240px;
+height:240px;
+border-style:dashed;
+animation:spinReverse 16s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
+}
+
+@keyframes spinReverse{
+from{transform:rotate(360deg)}
+to{transform:rotate(0)}
+}
+
+/* energy text */
+
+.energy{
+margin-top:15px;
+font-size:20px;
+}
+
+#remaining{
+color:#00eaff;
+font-weight:bold;
+}
+
+/* subsystem panel */
+
+.systems{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.system{
+background:#0b132b;
+padding:15px;
+border-radius:10px;
+}
+
+.system h3{
+color:#ffd700;
+margin-bottom:8px;
+}
+
+.controls{
+display:flex;
+gap:10px;
+}
+
+button{
+background:#c1121f;
+color:white;
+border:none;
+padding:6px 14px;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff3b3b;
+}
+
+input{
+width:200px;
+padding:6px;
+border-radius:6px;
+border:1px solid #00eaff;
+background:#020617;
+color:white;
+}
+
+/* energy bars */
+
+.bar{
+height:8px;
+background:#111;
+margin-top:10px;
+border-radius:4px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#ff3b3b,#ffd700);
+}
+
+/* jarvis */
+
+.jarvis{
+grid-column:span 2;
+margin-top:10px;
+}
+
+#jarvisResponse{
+margin-top:8px;
+color:#00eaff;
+}
+
+/* warning */
+
+.warning{
+grid-column:span 2;
+text-align:center;
+color:#ff4d4d;
+margin-top:10px;
+}
+
+/* HUD overlay */
+
+.hud-overlay{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:
+repeating-linear-gradient(
+transparent,
+transparent 2px,
+rgba(0,255,255,0.05) 3px
+);
+
+pointer-events:none;
+
+animation:hudScan 6s linear infinite;
+}
+
+@keyframes hudScan{
+0%{transform:translateY(-100%)}
+100%{transform:translateY(100%)}
+}
